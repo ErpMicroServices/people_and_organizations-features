@@ -11,7 +11,7 @@ Feature: People and Organziation data can be created, read, updated and deleted.
         And I have provided a date of birth of "01/01/2001"
         And I have made the comment that "Chesty is very testy"
         When I save the person
-        Then the data will be in the database
+        Then the person data will be in the database
 
     Scenario: Read a person by ID
         Given I have provided a first name as "Chester"
