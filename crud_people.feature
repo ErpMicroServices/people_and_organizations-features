@@ -5,110 +5,65 @@ Feature: People  can be created, read, updated and deleted.
 
   @party_database @party_party_service
   Scenario: Create a Person
-    Given I have provided a first name as "Chester"
-    And I have provided a last name as "Tester"
-    And I have provided a title of "Mr."
-    And I have provided a nickname of "Chesty"
-    And I have provided a date of birth of "01/01/2001"
-    And I have made the comment that "Chesty is very testy"
-    And I have provided a party type of "Person"
-    When I save the person
-    Then the person data will be in the database
-
-  @party_database @party_party_service
-  Scenario: Creating an party without a party type results in an error
-    Given I have provided a first name as "Chester"
-    And I have provided a last name as "Tester"
-    And I have made the comment that "Chesty is very testy"
-    And I have not provided a party type
-    When I save the organization
-    Then I get an error indicating that a party type is required
-
-  @party_party_service
-  Scenario: A person cannot be created without a first name or a last name
-    Given No first name
-    And no last name
-    And a title of "Mr"
-    And a nickname of "Johnny"
-    And a date of birth of "10/18/1968"
-    And a comment of "This is a comment"
-    And a party type of "Person"
-    When I save the information
-    Then I get an error indicating that either a first name or a last name must be provided
-
-  @party_party_service
-  Scenario: A person can be created without a first name and with a last name
-    Given No first name
-    And  a last name of "Smith"
-    And a title of "Mr"
-    And a nickname of "Johnny"
-    And a date of birth of "10/18/1968"
-    And a comment of "This is a comment"
-    And a party type of "Person"
-    When I save the information
-    Then I get an error indicating that either a first name or a last name must be provided
-
-  @party_party_service
-  Scenario: A person can be created with a first name and without a last name
-    Given A first name of "John"
-    And  no last name
-    And a title of "Mr"
-    And a nickname of "Johnny"
-    And a date of birth of "10/18/1968"
-    And a comment of "This is a comment"
-    And a party type of "Person"
-    When I save the information
-    Then I get an error indicating that either a first name or a last name must be provided
+	Given I have provided a first name as "Chester"
+	And I have provided a last name as "Tester"
+	And I have provided a title of "Mr."
+	And I have provided a nickname of "Chesty"
+	And I have provided a date of birth of "01/01/2001"
+	And I have made the comment that "Chesty is very testy"
+	And I have provided a party type of "Person"
+	When I save the person
+	Then the person data will be in the database
 
   @party_database @party_party_service
   Scenario: Read a person by ID
-    Given I have provided a first name as "Chester"
-    And I have provided a last name as "Tester"
-    And I have provided a title of "Mr."
-    And I have provided a nickname of "Chesty"
-    And I have provided a date of birth of "01/01/2001"
-    And I have made the comment that "Chesty is very testy"
-    And the person is in the database
-    When I search by the person's id
-    Then I find the person
+	Given I have provided a first name as "Chester"
+	And I have provided a last name as "Tester"
+	And I have provided a title of "Mr."
+	And I have provided a nickname of "Chesty"
+	And I have provided a date of birth of "01/01/2001"
+	And I have made the comment that "Chesty is very testy"
+	And the person is in the database
+	When I search by the person's id
+	Then I find the person
 
   @party_database @party_party_service
   Scenario: Read list of People
-    Given I have provided a first name as "Chester"
-    And I have provided a last name as "Tester"
-    And I have provided a title of "Mr."
-    And I have provided a nickname of "Chesty"
-    And I have provided a date of birth of "01/01/2001"
-    And I have made the comment that "Chesty is very testy"
-    And the person is in the database
-    When I search for all people
-    Then I find the person in the list
+	Given I have provided a first name as "Chester"
+	And I have provided a last name as "Tester"
+	And I have provided a title of "Mr."
+	And I have provided a nickname of "Chesty"
+	And I have provided a date of birth of "01/01/2001"
+	And I have made the comment that "Chesty is very testy"
+	And the person is in the database
+	When I search for all people
+	Then I find the person in the list
 
   @party_database @party_party_service
   Scenario: Update a Person
-    Given I have provided a first name as "Chester"
-    And I have provided a last name as "Tester"
-    And I have provided a title of "Mr."
-    And I have provided a nickname of "Chesty"
-    And I have provided a date of birth of "01/01/2001"
-    And I have made the comment that "Chesty is very testy"
-    And the person is in the database
-    When I update the first name to "Chester2"
-    Then the first name is "Chester2"
-    And the last name is "Tester"
-    And the title is "Mr."
-    And the nickname is "Chesty"
-    And the date of birth is "01/01/2001"
-    And the comment is "Chesty is very testy"
+	Given I have provided a first name as "Chester"
+	And I have provided a last name as "Tester"
+	And I have provided a title of "Mr."
+	And I have provided a nickname of "Chesty"
+	And I have provided a date of birth of "01/01/2001"
+	And I have made the comment that "Chesty is very testy"
+	And the person is in the database
+	When I update the first name to "Chester2"
+	Then the first name is "Chester2"
+	And the last name is "Tester"
+	And the title is "Mr."
+	And the nickname is "Chesty"
+	And the date of birth is "01/01/2001"
+	And the comment is "Chesty is very testy"
 
   @party_database @party_party_service
   Scenario: Delete a person
-    Given I have provided a first name as "Chester"
-    And I have provided a last name as "Tester"
-    And I have provided a title of "Mr."
-    And I have provided a nickname of "Chesty"
-    And I have provided a date of birth of "01/01/2001"
-    And I have made the comment that "Chesty is very testy"
-    And the person is in the database
-    When I delete the person
-    Then the person is no longer in the database
+	Given I have provided a first name as "Chester"
+	And I have provided a last name as "Tester"
+	And I have provided a title of "Mr."
+	And I have provided a nickname of "Chesty"
+	And I have provided a date of birth of "01/01/2001"
+	And I have made the comment that "Chesty is very testy"
+	And the person is in the database
+	When I delete the person
+	Then the person is no longer in the database
