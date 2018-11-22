@@ -22,55 +22,6 @@ Feature: Organizations can be created, read, updated and deleted.
     Then I get an error indicating that a name is required
 
   @party_database @party_party_service
-  Scenario: Creating an organization without a party type results in an error
-    Given I have not provided an organization name
-    And I have provided a government id of "123456789"
-    And I have made the comment that "Chesty is very testy"
-    And I have not provided a party type
-    When I save the organization
-    Then I get an error indicating that a party type is required
-
-  @party_party_service
-  Scenario: Creating an organization with a first name results in an error
-    Given I have provided an organization name of "Acme Co"
-    And I have provided a first name as "Chester"
-    And I have provided a government id of "123456789"
-    And I have made the comment that "Chesty is very testy"
-    And I have provided a party type of "Corporation"
-    When I save the organization
-    Then I get an error indicating that an organization cannot be created with a first name
-
-  @party_party_service
-  Scenario: Creating an organization with a last name results in an error
-    Given I have provided an organization name of "Acme Co"
-    And I have provided a last name as "Chester"
-    And I have provided a government id of "123456789"
-    And I have made the comment that "Chesty is very testy"
-    And I have provided a party type of "Corporation"
-    When I save the organization
-    Then I get an error indicating that an organization cannot be created with a last name
-
-  @party_party_service
-  Scenario: Creating an organization with a title results in an error
-    Given I have provided an organization name of "Acme Co"
-    And I have provided a title of "Chester"
-    And I have provided a government id of "123456789"
-    And I have made the comment that "Chesty is very testy"
-    And I have provided a party type of "Corporation"
-    When I save the organization
-    Then I get an error indicating that an organization cannot be created with a title
-
-  @party_party_service
-  Scenario: Creating an organization with a date of birth results in an error
-    Given I have provided an organization name of "Acme Co"
-    And a date of birth of "10/18/1968"
-    And I have provided a government id of "123456789"
-    And I have made the comment that "Chesty is very testy"
-    And I have provided a party type of "Corporation"
-    When I save the organization
-    Then I get an error indicating that an organization cannot be created with a date of birth
-
-  @party_database @party_party_service
   Scenario: Read an Organization by Id
     Given I have provided an organization name of "Acme Co"
     And I have provided a government id of "123456789"
