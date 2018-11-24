@@ -3,6 +3,6 @@ Feature: Zip Codes must be correctly formatted
   I want to have US zip codes that are both the old zip code and new ones with zip+4
   So that I can use any zip code format
 
-  Scenario: US zip codes are attached to the US.
-    Given I have provided a first name as "Chester"
-    And I have provided a last name as "Tester"
+#  Scenario: US zip codes are attached to the US.
+#    Given I have provided a first name as "Chester"
+#    And I have provided a last name as "Tester"
