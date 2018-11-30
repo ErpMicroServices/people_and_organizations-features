@@ -30,6 +30,20 @@ Feature: As a user
 	  | type  | description  | comment                 |
 	  | party | Person       | This is a person        |
 	  | party | Organization | This is an organization |
+	  | party | Organization |                         |
+
+  Scenario Outline: I can create a party without a comment field
+	Given a type of "<type>" with a description of "<description>" is in the database
+	And no comment field
+	When I save the party
+	Then I get the party back
+	And the party is in the database
+
+	Examples:
+	  | type  | description  |
+	  | party | Person       |
+	  | party | Organization |
+	  | party | Organization |
 
   Scenario Outline: I can read a party by id
 	Given a type of "<type>" with a description of "<description>" is in the database
