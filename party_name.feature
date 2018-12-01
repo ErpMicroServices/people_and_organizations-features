@@ -2,20 +2,27 @@ Feature: As a user
   I want to be able to manage name data about people and groups
   So that I can carry out various business functions
 
-  Scenario Outline: I can create a party with multiple names
-	Given a type of "<type>" with a description of "<description>" is in the database
-	And a name type of "<party_name_type>" with a name of "<party_name>"
-	  | first name | Chester      |
-	  | last name  | Tester       |
-	  | nickname   | Testy Chesty |
-	And a comment of "<comment>"
+  Scenario: I can create a party with multiple names
+	Given the following types:
+	  | name | First Name |
+	  | name | Last Name  |
+	  | name | Nickname   |
+	And party names of
+	  | First Name | Chester      |
+	  | Last Name  | Tester       |
+	  | Nickname   | Testy Chesty |
+	And a type of "party" with a description of "Person" is in the database
 	When I save the party
 	Then I get the party back
 	And the party is in the database
 	And the party name type is present
 	And the party names are present
-	Examples:
-	  | type  | description  | comment                 |
-	  | party | Person       | This is a person        |
-	  | party | Organization | This is an organization |
 
+  Scenario: I can add a name to a party
+	Given the following types:
+	  | party | Person     |
+	  | name  | First Name |
+	And a party of type "Person" is in the database
+	When I add the "First Name" of "Chester Tester" to the party
+	Then I get the party name back
+	Then the party name is in the database
