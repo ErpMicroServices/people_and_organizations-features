@@ -23,6 +23,6 @@ Feature: As a user
 	  | party | Person     |
 	  | name  | First Name |
 	And a party of type "Person" is in the database
-	When I add the "First Name" of "Chester Tester" to the party
+	When I add the "First Name" name of "Chester Tester" to the party
 	Then I get the party name back
 	Then the party name is in the database
