@@ -26,3 +26,25 @@ Feature: As a user
 	When I add the "First Name" name of "Chester Tester" to the party
 	Then I get the party name back
 	Then the party name is in the database
+
+  Scenario: I can update a name in a party
+	Given the following types:
+	  | party | Person     |
+	  | name  | First Name |
+	And a party of type "Person" is in the database
+	And the name "Chester Tester" of "First Name" type is in the party
+	When I change the name to "Changed Chester Tester"
+	Then I get the party name back
+	Then the party name is in the database
+	And the party is in the database
+
+
+  Scenario: I can delete a name in a party
+	Given the following types:
+	  | party | Person     |
+	  | name  | First Name |
+	And a party of type "Person" is in the database
+	And the name "Chester Tester" of "First Name" type is in the party
+	When I delete the name
+	Then the party name is not in the database
+	And the party is in the database
