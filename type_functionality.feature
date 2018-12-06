@@ -30,6 +30,7 @@ Feature: Types can be create, updated and deleted
 	  | facility role               | destination   |
 	  | name                        | first name    |
 	  | id                          | 123456xyz     |
+	  | case                        | complaint     |
 
   @party_database
   Scenario Outline: Read a type by description
@@ -56,6 +57,7 @@ Feature: Types can be create, updated and deleted
 	  | facility role               | destination   |
 	  | name                        | first name    |
 	  | id                          | 123456xyz     |
+	  | case                        | complaint     |
 
   @party_database
   Scenario Outline: Update a type
@@ -82,6 +84,7 @@ Feature: Types can be create, updated and deleted
 	  | facility role               | destination   | update  destination   |
 	  | name                        | first name    | update first name     |
 	  | id                          | 123456xyz     | update 123456xyz      |
+	  | case                        | complaint     | update complaint      |
 
   @party_database
   Scenario Outline: Delete a party role type
@@ -108,6 +111,7 @@ Feature: Types can be create, updated and deleted
 	  | facility role               | destination   |
 	  | name                        | first name    |
 	  | id                          | 123456xyz     |
+	  | case                        | complaint     |
 
   @party_database
   Scenario Outline: I can create a child of a party role type
@@ -134,6 +138,7 @@ Feature: Types can be create, updated and deleted
 	  | facility role               | destination   | child destination   |
 	  | name                        | person name   | first name          |
 	  | id                          | 123456xyz     | 123456xyz-2         |
+	  | case                        | complaint     | child complaint     |
 
   @party_database
   Scenario Outline: I can read a parent, and get the children
@@ -163,3 +168,4 @@ Feature: Types can be create, updated and deleted
 	  | facility role               | destination   |
 	  | name                        | first name    |
 	  | id                          | 123456xyz     |
+	  | case                        | complaint     |
