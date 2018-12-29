@@ -47,7 +47,7 @@ Feature: As a user
 
   Scenario Outline: I can read a party by id
 	Given a type of "<type>" with a description of "<description>" is in the database
-	And a party with a comment of "<comment>" is in the database
+	And a party with a comment of "<comment>" and a type of "<description>" is in the database
 	When I search for the party by id
 	Then I get the party back
 
@@ -58,7 +58,7 @@ Feature: As a user
 
   Scenario Outline: I can update a party
 	Given a type of "<type>" with a description of "<description>" is in the database
-	And a party with a comment of "<comment>" is in the database
+	And a party with a comment of "<comment>" and a type of "<description>" is in the database
 	And I change the comment to "<new comment>"
 	When I update the party
 	Then I get the party back
@@ -72,7 +72,7 @@ Feature: As a user
 
   Scenario Outline: I can delete a party
 	Given a type of "<type>" with a description of "<description>" is in the database
-	And a party with a comment of "<comment>" is in the database
+	And a party with a comment of "<comment>" and a type of "<description>" is in the database
 	When I delete the party
 	Then I get "true" back
 	And the party is not in the database

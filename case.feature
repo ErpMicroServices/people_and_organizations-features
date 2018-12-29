@@ -27,42 +27,48 @@ Feature: As a user
 	And 5 of them are cases in status "New"
 	And 0 of them are cases in status "Old"
 
-  Scenario Outline: I can create a case
-	Given a type of "<type>" with a description of "<description>" is in the database
-	And a case description of "<description>"
+  Scenario: I can create a case
+	Given the following types:
+	  | case        | Customer Complaint |
+	  | case status | New                |
+	And a case description of "This is a case to be created"
 	And a case status of "New"
+	And a case type of "Customer Complaint"
 	When I save the case
 	Then I get the case back
 	And the case is in the database
 
-	Examples:
-	  | type | description        | description             |
-	  | case | Customer Complaint | This is a person        |
-	  | case | Sales Negotiation  | This is an organization |
-	  | case | Sales Negotiation  |                         |
-
   Scenario: I can read a case by id
-	Given a type of "case" with a description of "Customer Complaint" is in the database
-	And a case description of "This is a case description"
+	Given the following types:
+	  | case        | Customer Complaint |
+	  | case status | New                |
+	And a case description of "This is a case to be read by id"
 	And a case status of "New"
+	And a case type of "Customer Complaint"
 	And the case is saved to the database
 	When I search for the case by id
 	Then I get the case back
 
 
   Scenario: I can update a case
-	Given a type of "case" with a description of "Customer Complaint" is in the database
-	And a case description of "This is a case description"
+	Given the following types:
+	  | case        | Customer Complaint |
+	  | case status | New                |
+	And a case description of "This is a case update description"
 	And a case status of "New"
+	And a case type of "Customer Complaint"
 	And the case is saved to the database
-	When I update the case description to "this is a new question"
+	When I update the case description to "this is what I updated the case description to"
 	Then I get the case back
 	And the case is in the database
 
   Scenario: I can delete a case
-	Given a type of "case" with a description of "Customer Complaint" is in the database
-	And a case description of "This is a case description"
+	Given the following types:
+	  | case        | Customer Complaint |
+	  | case status | New                |
+	And a case description of "This case is to be deleted"
 	And a case status of "New"
+	And a case type of "Customer Complaint"
 	And the case is saved to the database
 	When I delete the case
 	Then I get "true" back

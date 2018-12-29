@@ -32,6 +32,7 @@ Feature: Types can be create, updated and deleted
 	  | id                          | 123456xyz     |
 	  | case                        | complaint     |
 	  | case status                 | new           |
+	  | case role                   | participant   |
 
   @party_database
   Scenario Outline: Read a type by description
@@ -60,6 +61,7 @@ Feature: Types can be create, updated and deleted
 	  | id                          | 123456xyz     |
 	  | case                        | complaint     |
 	  | case status                 | new           |
+	  | case role                   | participant   |
 
   @party_database
   Scenario Outline: Update a type
@@ -88,6 +90,7 @@ Feature: Types can be create, updated and deleted
 	  | id                          | 123456xyz     | update 123456xyz      |
 	  | case                        | complaint     | update complaint      |
 	  | case status                 | new           | update new            |
+	  | case role                   | participant   | update participant    |
 
   @party_database
   Scenario Outline: Delete a party role type
@@ -116,6 +119,7 @@ Feature: Types can be create, updated and deleted
 	  | id                          | 123456xyz     |
 	  | case                        | complaint     |
 	  | case status                 | new           |
+	  | case role                   | participant   |
 
   @party_database
   Scenario Outline: I can create a child of a party role type
@@ -144,6 +148,7 @@ Feature: Types can be create, updated and deleted
 	  | id                          | 123456xyz     | 123456xyz-2         |
 	  | case                        | complaint     | child complaint     |
 	  | case status                 | new           | child new           |
+	  | case role                   | participant   | child participant   |
 
 
   @party_database
@@ -176,3 +181,4 @@ Feature: Types can be create, updated and deleted
 	  | id                          | 123456xyz     |
 	  | case                        | complaint     |
 	  | case status                 | new           |
+	  | case role                   | participant   |
