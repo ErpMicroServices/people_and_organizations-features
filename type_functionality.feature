@@ -12,27 +12,25 @@ Feature: Types can be create, updated and deleted
 
 	Examples:
 	  | type                        | description   |
-	  | party                       | Chester       |
-	  | party classification        | Super huge    |
-	  | party role                  | ChesterTester |
-	  | party relationship          | Customer      |
-	  | priority                    | High          |
-	  | party relationship status   | b0rken        |
-	  | geographic boundary         | county        |
-	  | contact mechanism           | phone         |
-	  | communication event purpose | fun           |
-	  | communication event role    | participant   |
-	  | communication event status  | over          |
-	  | case status                 | done          |
-	  | case role                   | participant   |
-	  | communication event         | phone call    |
-	  | facility                    | warehouse     |
-	  | facility role               | destination   |
-	  | name                        | first name    |
-	  | id                          | 123456xyz     |
 	  | case                        | complaint     |
 	  | case status                 | new           |
 	  | case role                   | participant   |
+	  | communication event         | phone call    |
+	  | communication event purpose | fun           |
+	  | communication event role    | participant   |
+	  | communication event status  | over          |
+	  | contact mechanism           | phone         |
+	  | facility                    | warehouse     |
+	  | facility role               | destination   |
+	  | geographic boundary         | county        |
+	  | id                          | 123456xyz     |
+	  | name                        | first name    |
+	  | party                       | Chester       |
+	  | party classification        | Super huge    |
+	  | party relationship          | Customer      |
+	  | party relationship status   | b0rken        |
+	  | party role                  | ChesterTester |
+	  | priority                    | High          |
 
   @party_database
   Scenario Outline: Read a type by description
@@ -41,27 +39,25 @@ Feature: Types can be create, updated and deleted
 	Then I find the type
 	Examples:
 	  | type                        | description   |
-	  | party                       | Chester       |
-	  | party classification        | Super huge    |
-	  | party role                  | ChesterTester |
-	  | party relationship          | Customer      |
-	  | priority                    | High          |
-	  | party relationship status   | b0rken        |
-	  | geographic boundary         | county        |
-	  | contact mechanism           | phone         |
-	  | communication event purpose | fun           |
-	  | communication event role    | participant   |
-	  | communication event status  | over          |
-	  | case status                 | done          |
-	  | case role                   | participant   |
-	  | communication event         | phone call    |
-	  | facility                    | warehouse     |
-	  | facility role               | destination   |
-	  | name                        | first name    |
-	  | id                          | 123456xyz     |
 	  | case                        | complaint     |
 	  | case status                 | new           |
 	  | case role                   | participant   |
+	  | communication event         | phone call    |
+	  | communication event purpose | fun           |
+	  | communication event role    | participant   |
+	  | communication event status  | over          |
+	  | contact mechanism           | phone         |
+	  | facility                    | warehouse     |
+	  | facility role               | destination   |
+	  | geographic boundary         | county        |
+	  | id                          | 123456xyz     |
+	  | name                        | first name    |
+	  | party                       | Chester       |
+	  | party classification        | Super huge    |
+	  | party relationship          | Customer      |
+	  | party relationship status   | b0rken        |
+	  | party role                  | ChesterTester |
+	  | priority                    | High          |
 
   @party_database
   Scenario Outline: Update a type
@@ -69,28 +65,26 @@ Feature: Types can be create, updated and deleted
 	When I update the description of the type to "<udpated description>"
 	Then the type description has been updated
 	Examples:
-	  | type                        | description   | udpated description   |
-	  | party                       | Chester       | update Chester        |
-	  | party classification        | Super huge    | update  Super huge    |
-	  | party role                  | ChesterTester | update  ChesterTester |
-	  | party relationship          | Customer      | update  Customer      |
-	  | priority                    | High          | update  High          |
-	  | party relationship status   | b0rken        | update  b0rken        |
-	  | geographic boundary         | county        | update  county        |
-	  | contact mechanism           | phone         | update  phone         |
-	  | communication event purpose | fun           | update  fun           |
-	  | communication event role    | participant   | update  participant   |
-	  | communication event status  | over          | update  over          |
-	  | case status                 | done          | update  done          |
-	  | case role                   | participant   | update  participant   |
-	  | communication event         | phone call    | update  phone call    |
-	  | facility                    | warehouse     | update  warehouse     |
-	  | facility role               | destination   | update  destination   |
-	  | name                        | first name    | update first name     |
-	  | id                          | 123456xyz     | update 123456xyz      |
-	  | case                        | complaint     | update complaint      |
-	  | case status                 | new           | update new            |
-	  | case role                   | participant   | update participant    |
+	  | type                        | description   | udpated description  |
+	  | case                        | complaint     | update complaint     |
+	  | case status                 | new           | update new           |
+	  | case role                   | participant   | update participant   |
+	  | communication event         | phone call    | update phone call    |
+	  | communication event purpose | fun           | update fun           |
+	  | communication event role    | participant   | update participant   |
+	  | communication event status  | over          | update over          |
+	  | contact mechanism           | phone         | update phone         |
+	  | facility                    | warehouse     | update warehouse     |
+	  | facility role               | destination   | update destination   |
+	  | geographic boundary         | county        | update county        |
+	  | id                          | 123456xyz     | update 123456xyz     |
+	  | name                        | first name    | update first name    |
+	  | party                       | Chester       | update Chester       |
+	  | party classification        | Super huge    | update Super Huge    |
+	  | party relationship          | Customer      | update Customer      |
+	  | party relationship status   | b0rken        | update b0rken        |
+	  | party role                  | ChesterTester | update ChesterTester |
+	  | priority                    | High          | update Hihgh         |
 
   @party_database
   Scenario Outline: Delete a party role type
@@ -99,27 +93,25 @@ Feature: Types can be create, updated and deleted
 	Then the type is not in the database
 	Examples:
 	  | type                        | description   |
-	  | party                       | Chester       |
-	  | party classification        | Super huge    |
-	  | party role                  | ChesterTester |
-	  | party relationship          | Customer      |
-	  | priority                    | High          |
-	  | party relationship status   | b0rken        |
-	  | geographic boundary         | county        |
-	  | contact mechanism           | phone         |
-	  | communication event purpose | fun           |
-	  | communication event role    | participant   |
-	  | communication event status  | over          |
-	  | case status                 | done          |
-	  | case role                   | participant   |
-	  | communication event         | phone call    |
-	  | facility                    | warehouse     |
-	  | facility role               | destination   |
-	  | name                        | first name    |
-	  | id                          | 123456xyz     |
 	  | case                        | complaint     |
 	  | case status                 | new           |
 	  | case role                   | participant   |
+	  | communication event         | phone call    |
+	  | communication event purpose | fun           |
+	  | communication event role    | participant   |
+	  | communication event status  | over          |
+	  | contact mechanism           | phone         |
+	  | facility                    | warehouse     |
+	  | facility role               | destination   |
+	  | geographic boundary         | county        |
+	  | id                          | 123456xyz     |
+	  | name                        | first name    |
+	  | party                       | Chester       |
+	  | party classification        | Super huge    |
+	  | party relationship          | Customer      |
+	  | party relationship status   | b0rken        |
+	  | party role                  | ChesterTester |
+	  | priority                    | High          |
 
   @party_database
   Scenario Outline: I can create a child of a party role type
@@ -128,28 +120,24 @@ Feature: Types can be create, updated and deleted
 	Then I can find the parent of the child  of the type
 	Examples:
 	  | type                        | description   | child description   |
-	  | party                       | Chester       | Child Chester       |
-	  | party classification        | Super huge    | child Super huge    |
-	  | party role                  | ChesterTester | child ChesterTester |
-	  | party relationship          | Customer      | child Customer      |
-	  | priority                    | High          | child High          |
-	  | party relationship status   | b0rken        | child b0rken        |
-	  | geographic boundary         | county        | child county        |
-	  | contact mechanism           | phone         | child phone         |
-	  | communication event purpose | fun           | child fun           |
-	  | communication event role    | participant   | child participant   |
-	  | communication event status  | over          | child over          |
-	  | case status                 | done          | child done          |
-	  | case role                   | participant   | child participant   |
-	  | communication event         | phone call    | child phone call    |
-	  | facility                    | warehouse     | child warehouse     |
-	  | facility role               | destination   | child destination   |
-	  | name                        | person name   | first name          |
-	  | id                          | 123456xyz     | 123456xyz-2         |
 	  | case                        | complaint     | child complaint     |
 	  | case status                 | new           | child new           |
 	  | case role                   | participant   | child participant   |
-
+	  | communication event         | phone call    | child phone call    |
+	  | communication event purpose | fun           | child fun           |
+	  | communication event role    | participant   | child participant   |
+	  | communication event status  | over          | child over          |
+	  | contact mechanism           | phone         | child phone         |
+	  | facility                    | warehouse     | child warehouse     |
+	  | facility role               | destination   | child destination   |
+	  | geographic boundary         | county        | child county        |
+	  | id                          | 123456xyz     | child 123456xyz     |
+	  | name                        | first name    | child first name    |
+	  | party                       | Chester       | child Chester       |
+	  | party classification        | Super huge    | child Super huge    |
+	  | party relationship          | Customer      | child Customer      |
+	  | party relationship status   | b0rken        | child b0rken        |
+	  | party role                  | ChesterTester | child ChesterTester |
 
   @party_database
   Scenario Outline: I can read a parent, and get the children
@@ -161,24 +149,22 @@ Feature: Types can be create, updated and deleted
 
 	Examples:
 	  | type                        | description   |
-	  | party                       | Chester       |
-	  | party classification        | Super huge    |
-	  | party role                  | ChesterTester |
-	  | party relationship          | Customer      |
-	  | priority                    | High          |
-	  | party relationship status   | b0rken        |
-	  | geographic boundary         | county        |
-	  | contact mechanism           | phone         |
-	  | communication event purpose | fun           |
-	  | communication event role    | participant   |
-	  | communication event status  | over          |
-	  | case status                 | done          |
-	  | case role                   | participant   |
-	  | communication event         | phone call    |
-	  | facility                    | warehouse     |
-	  | facility role               | destination   |
-	  | name                        | first name    |
-	  | id                          | 123456xyz     |
 	  | case                        | complaint     |
 	  | case status                 | new           |
 	  | case role                   | participant   |
+	  | communication event         | phone call    |
+	  | communication event purpose | fun           |
+	  | communication event role    | participant   |
+	  | communication event status  | over          |
+	  | contact mechanism           | phone         |
+	  | facility                    | warehouse     |
+	  | facility role               | destination   |
+	  | geographic boundary         | county        |
+	  | id                          | 123456xyz     |
+	  | name                        | first name    |
+	  | party                       | Chester       |
+	  | party classification        | Super huge    |
+	  | party relationship          | Customer      |
+	  | party relationship status   | b0rken        |
+	  | party role                  | ChesterTester |
+	  | priority                    | High          |
