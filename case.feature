@@ -54,7 +54,6 @@ Feature: As a user
     And a case type of "Customer Complaint"
     When I save the case
     Then the operation was successful
-    And I get the case back
     And the case is in the database
 
   @party_database
@@ -68,7 +67,6 @@ Feature: As a user
     And the case is saved to the database
     When I search for the case by id
     Then the operation was successful
-    And I get the case back
 
   @party_database
   Scenario: I can update a case
@@ -81,20 +79,7 @@ Feature: As a user
     And the case is saved to the database
     When I update the case description to "this is what I updated the case description to"
     Then the operation was successful
-    And I get the case back
     And the case is in the database
-
-  Scenario: I can update a case
-    Given the following types:
-      | case        | Customer Complaint |
-      | case status | New                |
-    And a case description of "This is a case update description"
-    And a case status of "New"
-    And a case type of "Customer Complaint"
-    And the case is saved to the database
-    When the operation was successful
-    And I update the case description to "this is what I updated the case description to"
-    Then I get the case back
 
   @party_database
   Scenario: I can delete a case

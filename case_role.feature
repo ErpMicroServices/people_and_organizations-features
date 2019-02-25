@@ -35,7 +35,6 @@ Feature: As a user
     And a case type of "Customer Complaint"
     When I save the case
     Then the operation was successful
-    And I get the case back
     And the case is in the database
     And the case has 5 roles
     And the 5 roles have type "Participant"
@@ -55,11 +54,10 @@ Feature: As a user
     And a party with a comment of "Case Role Party" and a type of "Person" is in the database
     When I add a party with case role "Participant" to the case
     Then the operation was successful
-    And I get the case back
     And the case is in the database
     And the case has 1 roles
     And the 1 roles have type "Participant"
-    And the role includes the party
+    And the roles include the parties
 
   @party_database
   Scenario: I can update a case role to a case
@@ -73,14 +71,14 @@ Feature: As a user
     And a case type of "Customer Complaint"
     And the case is saved to the database
     And a party with a comment of "Case Role Party" and a type of "Person" is in the database
-    And the party with case role "Participant" has been added to the case
+    And a party with case role "Participant" has been added to the case
     And a party with a comment of "New Case Role Party" and a type of "Person" is in the database
     When I change the party in the role
     Then the operation was successful
     And the case is in the database
     And the case has 1 roles
     And the 1 roles have type "Participant"
-    And the role includes the party
+    And the role include the new party
 
   Scenario: I can update a case role to a case
     Given the following types:
@@ -93,9 +91,10 @@ Feature: As a user
     And a case type of "Customer Complaint"
     And the case is saved to the database
     And a party with a comment of "Case Role Party" and a type of "Person" is in the database
-    And the party with case role "Participant" has been added to the case
+    And a party with case role "Participant" has been added to the case
     And a party with a comment of "New Case Role Party" and a type of "Person" is in the database
     When Then the operation was successful
+    Then the operation was sc
     And I change the party in the role
     Then I get the case back
 
@@ -111,7 +110,7 @@ Feature: As a user
     And a case type of "Customer Complaint"
     And the case is saved to the database
     And a party with a comment of "Case Role Party" and a type of "Person" is in the database
-    And party with case role "Participant" has been added to the case
+    And a party with case role "Participant" has been added to the case
     When I delete the case role
     Then the operation was successful
     And the case is in the database
@@ -129,8 +128,8 @@ Feature: As a user
     And a case type of "Customer Complaint"
     And the case is saved to the database
     And a party with a comment of "Case Role Party" and a type of "Person" is in the database
-    And party with case role "Participant" has been added to the case
-    When Then the operation was successful
-    And I delete the case role
-    Then I get the case back
+    And a party with case role "Participant" has been added to the case
+    When I delete the case role
+    Then the case is in the database
+    And the case is in the database
 
