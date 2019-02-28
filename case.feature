@@ -94,3 +94,36 @@ Feature: As a user
     Then the operation was successful
     And I get "true" back
     And the case is not in the database
+
+  @party_database
+  Scenario: I can add a communication event to a case
+    Given the following types:
+      | case                       | Customer Complaint |
+      | case status                | New                |
+      | party                      | Person             |
+      | party role                 | Sender             |
+      | party role                 | Receiver           |
+      | communication event        | Find me            |
+      | communication event        | Don't find me      |
+      | party relationship         | Testing            |
+      | party relationship status  | Active             |
+      | communication event status | done               |
+      | contact mechanism          | test               |
+    And a case description of "This is a case to be read by id"
+    And a case status of "New"
+    And a case type of "Customer Complaint"
+    And the case is saved to the database
+    And there are 2 parties with a type of "Person" in the database
+    And party 1 has a party role of "Sender"
+    And party 2 has a party role of "Receiver"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a communication event with a note of "Find by type"
+    And a communication event is for a relationship between party 1 and party 2
+    And a communication event status is "done"
+    And a communication event contact mechanism type is "test"
+    And a communication event has a type of "Don't find me"
+    And the communication event is in the database
+    When I add the communication event to the case
+    Then the operation was successful
+    And the case contains the communication event
+
