@@ -98,3 +98,36 @@ Feature: As a user
     And the communication event of type "Find me" is found
     And the communication event of type "Don't find me" is not found
 
+  @party_database
+  Scenario: I can find a communication event by contact mechanism
+    Given the following types:
+      | party                      | Person          |
+      | party role                 | Sender          |
+      | party role                 | Receiver        |
+      | communication event        | Find me         |
+      | communication event        | Don't find me   |
+      | party relationship         | Testing         |
+      | party relationship status  | Active          |
+      | communication event status | done            |
+      | contact mechanism          | find this one   |
+      | contact mechanism          | ignore this one |
+    And there are 2 parties with a type of "Person" in the database
+    And party 1 has a party role of "Sender"
+    And party 2 has a party role of "Receiver"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a communication event with a note of "Find by type"
+    And a communication event is for a relationship between party 1 and party 2
+    And a communication event status is "done"
+    And a communication event contact mechanism type is "find this one"
+    And a communication event has a type of "Find me"
+    And the communication event is in the database
+    And a communication event with a note of "Find by type"
+    And a communication event is for a relationship between party 1 and party 2
+    And a communication event status is "done"
+    And a communication event contact mechanism type is "ignore this one"
+    And a communication event has a type of "Don't find me"
+    And the communication event is in the database
+    When I search for communication events using contact mechanism "find this one"
+    Then the operation was successful
+    And the communication event of type "Find me" is found
+    And the communication event of type "Don't find me" is not found
