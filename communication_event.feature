@@ -1,6 +1,6 @@
 # Created by JimBarrows at 2019-01-29
 Feature: As a user
-  I want to manage commmunication events for indviduals and groups
+  I want to manage communication events for individuals and groups
   So that I can track what's been communicated, to whom and for what purpose.
 
 
@@ -170,6 +170,49 @@ Feature: As a user
     And a communication event has a type of "Don't find me"
     And the communication event is in the database
     When I search for communication events using a party relationship of type "Find This" and party role "Find Sender" and party role "Find Receiver"
+    Then the operation was successful
+    And the communication event of type "Find me" is found
+    And the communication event of type "Don't find me" is not found
+
+  @party_database
+  Scenario: I can find communication events by the status
+    Given the following types:
+      | party                      | Person          |
+      | party                      | Find Person     |
+      | party role                 | Find Sender     |
+      | party role                 | Find Receiver   |
+      | party role                 | Sender          |
+      | party role                 | Receiver        |
+      | communication event        | Find me         |
+      | communication event        | Don't find me   |
+      | party relationship         | Find This       |
+      | party relationship         | Testing         |
+      | party relationship status  | Active          |
+      | communication event status | done            |
+      | communication event status | Find me         |
+      | contact mechanism          | find this one   |
+      | contact mechanism          | ignore this one |
+    And there are 2 parties with a type of "Find Person" in the database
+    And party 1 has a party role of "Find Sender"
+    And party 2 has a party role of "Find Receiver"
+    And a party relationship of type "Find This" between party role "Find Sender" and party role "Find Receiver" in status "Active"
+    And a communication event with a note of "Find by type - Find"
+    And a communication event is for a relationship between party 1 and party 2
+    And a communication event status is "Find me"
+    And a communication event contact mechanism type is "find this one"
+    And a communication event has a type of "Find me"
+    And the communication event is in the database
+    And there are 2 parties with a type of "Person" in the database
+    And party 1 has a party role of "Sender"
+    And party 2 has a party role of "Receiver"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a communication event with a note of "Find by type -ignore"
+    And a communication event is for a relationship between party 1 and party 2
+    And a communication event status is "done"
+    And a communication event contact mechanism type is "ignore this one"
+    And a communication event has a type of "Don't find me"
+    And the communication event is in the database
+    When I search for communication events with a status of "Find me"
     Then the operation was successful
     And the communication event of type "Find me" is found
     And the communication event of type "Don't find me" is not found
