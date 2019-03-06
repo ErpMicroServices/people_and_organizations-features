@@ -30,7 +30,7 @@ Feature: As a user
     And the communication event has the purpose "Interrupt dinner"
 
   @party_database
-  Scenario: I can chang a purpose to a communication event
+  Scenario: I can change a purpose to a communication event
     Given the following types:
       | communication event         | Incoming call    |
       | communication event purpose | Interrupt dinner |
