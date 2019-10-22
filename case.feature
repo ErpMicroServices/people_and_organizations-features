@@ -1,129 +1,133 @@
 # Created by JimBarrows at 11/25/18
 Feature: As a user
-  I want to be able to manage data about cases
-  So that I can carry out various business functions
+	I want to be able to manage data about cases
+	So that I can carry out various business functions
 
-  @party_database
-  Scenario: I can view a list of cases
-    Given the following types:
-      | case        | Customer Complaint |
-      | case        | Sales Negotiation  |
-      | case status | New                |
-    And there are 5 cases with a type of "Customer Complaint" with a status of "New" in the database
-    And there are 5 cases with a type of "Sales Negotiation" with a status of "New" in the database
-    When I search for all cases
-    Then I get 10 cases
-    And 5 of them are cases of type "Customer Complaint"
-    And 5 of them are cases of type "Sales Negotiation"
+	@party_database
+	@party_endpoint
+	Scenario: I can view a list of cases
+		Given the following types:
+			| case        | Customer Complaint |
+			| case        | Sales Negotiation  |
+			| case status | New                |
+		And there are 5 cases with a type of "Customer Complaint" with a status of "New" in the database
+		And there are 5 cases with a type of "Sales Negotiation" with a status of "New" in the database
+		When I search for all cases
+		Then I get 10 cases
+		And 5 of them are cases of type "Customer Complaint"
+		And 5 of them are cases of type "Sales Negotiation"
 
-  @party_database
-  Scenario: I can view a list of cases by type
-    Given the following types:
-      | case        | Customer Complaint |
-      | case        | Sales Negotiation  |
-      | case status | New                |
-      | case status | Old                |
-    And there are 5 cases with a type of "Customer Complaint" with a status of "New" in the database
-    And there are 5 cases with a type of "Sales Negotiation" with a status of "Old" in the database
-    When I search for cases of type "Customer Complaint"
-    Then I get 5 cases
-    And 5 of them are cases of type "Customer Complaint"
-    And 0 of them are cases of type "Sales Negotiation"
+	@party_database
+	@party_endpoint
+	Scenario: I can view a list of cases by type
+		Given the following types:
+			| case        | Customer Complaint |
+			| case        | Sales Negotiation  |
+			| case status | New                |
+			| case status | Old                |
+		And there are 5 cases with a type of "Customer Complaint" with a status of "New" in the database
+		And there are 5 cases with a type of "Sales Negotiation" with a status of "Old" in the database
+		When I search for cases of type "Customer Complaint"
+		Then I get 5 cases
+		And 5 of them are cases of type "Customer Complaint"
+		And 0 of them are cases of type "Sales Negotiation"
 
-  @party_database
-  Scenario: I can view a list of cases by status
-    Given the following types:
-      | case        | Customer Complaint |
-      | case        | Sales Negotiation  |
-      | case status | New                |
-      | case status | Old                |
-    Given there are 5 cases with a type of "Customer Complaint" with a status of "New" in the database
-    And there are 5 cases with a type of "Sales Negotiation" with a status of "Old" in the database
-    When I search for cases with a status of "New"
-    Then I get 5 cases
-    And 5 of them are cases in status "New"
-    And 0 of them are cases in status "Old"
+	@party_database
+	@party_endpoint
+	Scenario: I can view a list of cases by status
+		Given the following types:
+			| case        | Customer Complaint |
+			| case        | Sales Negotiation  |
+			| case status | New                |
+			| case status | Old                |
+		Given there are 5 cases with a type of "Customer Complaint" with a status of "New" in the database
+		And there are 5 cases with a type of "Sales Negotiation" with a status of "Old" in the database
+		When I search for cases with a status of "New"
+		Then I get 5 cases
+		And 5 of them are cases in status "New"
+		And 0 of them are cases in status "Old"
 
-  @party_database
-  Scenario: I can create a case
-    Given the following types:
-      | case        | Customer Complaint |
-      | case status | New                |
-    And a case description of "This is a case to be created"
-    And a case status of "New"
-    And a case type of "Customer Complaint"
-    When I save the case
-    Then the operation was successful
-    And the case is in the database
+	@party_database
+	@party_endpoint
+	Scenario: I can create a case
+		Given the following types:
+			| case        | Customer Complaint |
+			| case status | New                |
+		And a case description of "This is a case to be created"
+		And a case status of "New"
+		And a case type of "Customer Complaint"
+		When I save the case
+		Then the operation was successful
+		And the case is in the database
 
-  @party_database
-  Scenario: I can read a case by id
-    Given the following types:
-      | case        | Customer Complaint |
-      | case status | New                |
-    And a case description of "This is a case to be read by id"
-    And a case status of "New"
-    And a case type of "Customer Complaint"
-    And the case is saved to the database
-    When I search for the case by id
-    Then the operation was successful
+	@party_database
+	@party_endpoint
+	Scenario: I can read a case by id
+		Given the following types:
+			| case        | Customer Complaint |
+			| case status | New                |
+		And a case description of "This is a case to be read by id"
+		And a case status of "New"
+		And a case type of "Customer Complaint"
+		And the case is saved to the database
+		When I search for the case by id
+		Then the operation was successful
 
-  @party_database
-  Scenario: I can update a case
-    Given the following types:
-      | case        | Customer Complaint |
-      | case status | New                |
-    And a case description of "This is a case update description"
-    And a case status of "New"
-    And a case type of "Customer Complaint"
-    And the case is saved to the database
-    When I update the case description to "this is what I updated the case description to"
-    Then the operation was successful
-    And the case is in the database
+	@party_database
+	@party_endpoint
+	Scenario: I can update a case
+		Given the following types:
+			| case        | Customer Complaint |
+			| case status | New                |
+		And a case description of "This is a case update description"
+		And a case status of "New"
+		And a case type of "Customer Complaint"
+		And the case is saved to the database
+		When I update the case description to "this is what I updated the case description to"
+		Then the operation was successful
+		And the case is in the database
 
-  @party_database
-  Scenario: I can delete a case
-    Given the following types:
-      | case        | Customer Complaint |
-      | case status | New                |
-    And a case description of "This case is to be deleted"
-    And a case status of "New"
-    And a case type of "Customer Complaint"
-    And the case is saved to the database
-    When I delete the case
-    Then the operation was successful
-    And I get "true" back
-    And the case is not in the database
+	@party_database
+	@party_endpoint
+	Scenario: I can delete a case
+		Given the following types:
+			| case        | Customer Complaint |
+			| case status | New                |
+		And a case description of "This case is to be deleted"
+		And a case status of "New"
+		And a case type of "Customer Complaint"
+		And the case is saved to the database
+		When I delete the case
+		Then the operation was successful
+		And I get "true" back
+		And the case is not in the database
 
-  @party_database
-  Scenario: I can add a communication event to a case
-    Given the following types:
-      | case                       | Customer Complaint |
-      | case status                | New                |
-      | party                      | Person             |
-      | party role                 | Sender             |
-      | party role                 | Receiver           |
-      | communication event        | Find me            |
-      | communication event        | Don't find me      |
-      | party relationship         | Testing            |
-      | party relationship status  | Active             |
-      | communication event status | done               |
-      | contact mechanism          | test               |
-    And a case description of "This is a case to be read by id"
-    And a case status of "New"
-    And a case type of "Customer Complaint"
-    And the case is saved to the database
-    And there are 2 parties with a type of "Person" in the database
-    And party 1 has a party role of "Sender"
-    And party 2 has a party role of "Receiver"
-    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
-    And a communication event with a note of "Find by type"
-    And a communication event is for a relationship between party 1 and party 2
-    And a communication event status is "done"
-    And a communication event contact mechanism type is "test"
-    And a communication event has a type of "Don't find me"
-    And the communication event is in the database
-    When I add the communication event to the case
-    Then the operation was successful
-    And the case contains the communication event
+	@party_database
+	@party_endpoint
+	Scenario: I can add a communication event to a case
+		Given the following types:
+			| case                       | Customer Complaint |
+			| case status                | New                |
+			| party                      | Person             |
+			| party role                 | Sender             |
+			| party role                 | Receiver           |
+			| communication event        | Find me            |
+			| communication event        | Don't find me      |
+			| party relationship         | Testing            |
+			| party relationship status  | Active             |
+			| communication event status | done               |
+			| contact mechanism          | test               |
+		And a case description of "This is a case to be read by id"
+		And a case status of "New"
+		And a case type of "Customer Complaint"
+		And the case is saved to the database
+		And there are 2 parties with a type of "Person" in the database
+		And party 1 has a party role of "Sender"
+		And party 2 has a party role of "Receiver"
+		And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+		And communication events:
+			| Find by type | 1 | 2 | done | test | Don't find me | 2001-01-01 |
+		When I add the communication event to the case
+		Then the operation was successful
+		And the case contains the communication event
 
