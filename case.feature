@@ -117,6 +117,7 @@ Feature: As a user
 			| party relationship status  | Active             |
 			| communication event status | done               |
 			| contact mechanism          | test               |
+			| priority                   | High               |
 		And a case description of "This is a case to be read by id"
 		And a case status of "New"
 		And a case type of "Customer Complaint"
@@ -124,7 +125,7 @@ Feature: As a user
 		And there are 2 parties with a type of "Person" in the database
 		And party 1 has a party role of "Sender"
 		And party 2 has a party role of "Receiver"
-		And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+		And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active" with priority "High"
 		And communication events:
 			| Find by type | 1 | 2 | done | test | Don't find me | 2001-01-01 |
 		When I add the communication event to the case

@@ -5,6 +5,7 @@ Feature: As a user
 
 
   @party_database
+  @party_endpoint
   Scenario: I can create a communication event
     Given the following types:
       | communication event        | Incoming call |
@@ -15,10 +16,11 @@ Feature: As a user
       | party relationship status  | Active        |
       | party role                 | Sender        |
       | party role                 | Receiver      |
+      | priority                   | High          |
     And there are 2 parties with a type of "Person" in the database
     And party 1 has a party role of "Sender"
     And party 2 has a party role of "Receiver"
-    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active" with priority "High"
     And a communication event with a note of "This is a note"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "done"
@@ -29,6 +31,7 @@ Feature: As a user
     And I find the communication event in the database
 
   @party_database
+#  @party_endpoint
   Scenario: I can find a communication event by timestamp
     Given the following types:
       | party                      | Person        |
@@ -40,10 +43,11 @@ Feature: As a user
       | party relationship status  | Active        |
       | communication event status | done          |
       | contact mechanism          | test          |
+      | priority                   | High          |
     And there are 2 parties with a type of "Person" in the database
     And party 1 has a party role of "Sender"
     And party 2 has a party role of "Receiver"
-    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Dont find this"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "done"
@@ -66,6 +70,7 @@ Feature: As a user
     And the communication event of type "Don't find me" is not found
 
   @party_database
+#  @party_endpoint
   Scenario: I can find a communication event by type
     Given the following types:
       | party                      | Person        |
@@ -77,10 +82,11 @@ Feature: As a user
       | party relationship status  | Active        |
       | communication event status | done          |
       | contact mechanism          | test          |
+      | priority                   | High          |
     And there are 2 parties with a type of "Person" in the database
     And party 1 has a party role of "Sender"
     And party 2 has a party role of "Receiver"
-    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "done"
@@ -99,6 +105,7 @@ Feature: As a user
     And the communication event of type "Don't find me" is not found
 
   @party_database
+#  @party_endpoint
   Scenario: I can find a communication event by contact mechanism
     Given the following types:
       | party                      | Person          |
@@ -111,10 +118,11 @@ Feature: As a user
       | communication event status | done            |
       | contact mechanism          | find this one   |
       | contact mechanism          | ignore this one |
+      | priority                   | High            |
     And there are 2 parties with a type of "Person" in the database
     And party 1 has a party role of "Sender"
     And party 2 has a party role of "Receiver"
-    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "done"
@@ -133,6 +141,7 @@ Feature: As a user
     And the communication event of type "Don't find me" is not found
 
   @party_database
+#  @party_endpoint
   Scenario: I can find communication events by the party relationship
     Given the following types:
       | party                      | Person          |
@@ -149,10 +158,11 @@ Feature: As a user
       | communication event status | done            |
       | contact mechanism          | find this one   |
       | contact mechanism          | ignore this one |
+      | priority                   | High            |
     And there are 2 parties with a type of "Find Person" in the database
     And party 1 has a party role of "Find Sender"
     And party 2 has a party role of "Find Receiver"
-    And a party relationship of type "Find This" between party role "Find Sender" and party role "Find Receiver" in status "Active"
+    And a party relationship of type "Find This" between party role "Find Sender" and party role "Find Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type - Find"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "done"
@@ -162,7 +172,7 @@ Feature: As a user
     And there are 2 parties with a type of "Person" in the database
     And party 1 has a party role of "Sender"
     And party 2 has a party role of "Receiver"
-    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type -ignore"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "done"
@@ -175,6 +185,7 @@ Feature: As a user
     And the communication event of type "Don't find me" is not found
 
   @party_database
+#  @party_endpoint
   Scenario: I can find communication events by the status
     Given the following types:
       | party                      | Person          |
@@ -192,10 +203,11 @@ Feature: As a user
       | communication event status | Find me         |
       | contact mechanism          | find this one   |
       | contact mechanism          | ignore this one |
+      | priority                   | High            |
     And there are 2 parties with a type of "Find Person" in the database
     And party 1 has a party role of "Find Sender"
     And party 2 has a party role of "Find Receiver"
-    And a party relationship of type "Find This" between party role "Find Sender" and party role "Find Receiver" in status "Active"
+    And a party relationship of type "Find This" between party role "Find Sender" and party role "Find Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type - Find"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "Find me"
@@ -205,7 +217,7 @@ Feature: As a user
     And there are 2 parties with a type of "Person" in the database
     And party 1 has a party role of "Sender"
     And party 2 has a party role of "Receiver"
-    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type -ignore"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "done"
@@ -218,6 +230,7 @@ Feature: As a user
     And the communication event of type "Don't find me" is not found
 
   @party_database
+#  @party_endpoint
   Scenario: I can find communication events by the case
     Given the following types:
       | party                      | Person             |
@@ -237,6 +250,7 @@ Feature: As a user
       | contact mechanism          | ignore this one    |
       | case                       | Customer Complaint |
       | case status                | New                |
+      | priority                   | High               |
     And a case description of "Find this case"
     And a case status of "New"
     And a case type of "Customer Complaint"
@@ -244,7 +258,7 @@ Feature: As a user
     And there are 2 parties with a type of "Find Person" in the database
     And party 1 has a party role of "Find Sender"
     And party 2 has a party role of "Find Receiver"
-    And a party relationship of type "Find This" between party role "Find Sender" and party role "Find Receiver" in status "Active"
+    And a party relationship of type "Find This" between party role "Find Sender" and party role "Find Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type - Find"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "Find me"
@@ -259,7 +273,7 @@ Feature: As a user
     And there are 2 parties with a type of "Person" in the database
     And party 1 has a party role of "Sender"
     And party 2 has a party role of "Receiver"
-    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type -ignore"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "done"
@@ -273,6 +287,7 @@ Feature: As a user
     And the communication event of type "Don't find me" is not found
 
   @party_database
+#  @party_endpoint
   Scenario: I can find communication events for a party
     Given the following types:
       | party                      | Person             |
@@ -292,6 +307,7 @@ Feature: As a user
       | contact mechanism          | ignore this one    |
       | case                       | Customer Complaint |
       | case status                | New                |
+      | priority                   | High               |
     And a case description of "Find this case"
     And a case status of "New"
     And a case type of "Customer Complaint"
@@ -299,7 +315,7 @@ Feature: As a user
     And there are 2 parties with a type of "Find Person" in the database
     And party 1 has a party role of "Find Sender"
     And party 2 has a party role of "Find Receiver"
-    And a party relationship of type "Find This" between party role "Find Sender" and party role "Find Receiver" in status "Active"
+    And a party relationship of type "Find This" between party role "Find Sender" and party role "Find Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type - Find"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "Find me"
@@ -314,7 +330,7 @@ Feature: As a user
     And there are 2 parties with a type of "Person" in the database
     And party 3 has a party role of "Sender"
     And party 4 has a party role of "Receiver"
-    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active"
+    And a party relationship of type "Testing" between party role "Sender" and party role "Receiver" in status "Active" with priority "High"
     And a communication event with a note of "Find by type -ignore"
     And a communication event is for a relationship between party 1 and party 2
     And a communication event status is "done"

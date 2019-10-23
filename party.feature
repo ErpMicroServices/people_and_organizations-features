@@ -45,7 +45,7 @@ Feature: As a user
 			| type  | description  | comment                 |
 			| party | Person       | This is a person        |
 			| party | Organization | This is an organization |
-			| party | Organization |                         |
+#			| party | Organization |                         |
 
 	@party_database
 		@party_endpoint
