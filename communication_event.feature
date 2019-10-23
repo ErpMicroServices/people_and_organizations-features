@@ -31,7 +31,7 @@ Feature: As a user
     And I find the communication event in the database
 
   @party_database
-#  @party_endpoint
+  @party_endpoint
   Scenario: I can find a communication event by timestamp
     Given the following types:
       | party                      | Person        |

@@ -31,7 +31,7 @@ Feature: As a user
 		Then the operation was successful
 		And the communication event has party 1 in communication event role of "Participant"
 
-	@party_endpoint
+#	@party_endpoint
 	Scenario: I can change a communication event role to a communication event
 		Given the following types:
 			| party                      | Person        |
