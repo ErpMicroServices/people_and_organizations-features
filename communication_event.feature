@@ -70,7 +70,7 @@ Feature: As a user
     And the communication event of type "Don't find me" is not found
 
   @party_database
-#  @party_endpoint
+  @party_endpoint
   Scenario: I can find a communication event by type
     Given the following types:
       | party                      | Person        |
