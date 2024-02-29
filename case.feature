@@ -56,6 +56,7 @@ Feature: As a user
 		And a case description of "This is a case to be created"
 		And a case status of "New"
 		And a case type of "Customer Complaint"
+		And a case was started at "2024-02-29T05:26:36−07:00"
 		When I save the case
 		Then the operation was successful
 		And the case is in the database
