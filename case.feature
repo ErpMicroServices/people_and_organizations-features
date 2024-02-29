@@ -70,6 +70,7 @@ Feature: As a user
 		And a case description of "This is a case to be read by id"
 		And a case status of "New"
 		And a case type of "Customer Complaint"
+		And a case was started at "2024-02-29T05:26:36-07:00"
 		And the case is saved to the database
 		When I search for the case by id
 		Then the operation was successful
