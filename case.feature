@@ -1,7 +1,5 @@
 # Created by JimBarrows at 11/25/18
-Feature: As a user
-	I want to be able to manage data about cases
-	So that I can carry out various business functions
+Feature: As a user I want to be able to manage data about cases So that I can carry out various business functions
 
 	@party_database
 	@party_endpoint
@@ -84,6 +82,7 @@ Feature: As a user
 		And a case description of "This is a case update description"
 		And a case status of "New"
 		And a case type of "Customer Complaint"
+		And a case was started at "2024-02-29T05:26:36-07:00"
 		And the case is saved to the database
 		When I update the case description to "this is what I updated the case description to"
 		Then the operation was successful
@@ -98,6 +97,7 @@ Feature: As a user
 		And a case description of "This case is to be deleted"
 		And a case status of "New"
 		And a case type of "Customer Complaint"
+		And a case was started at "2024-02-29T05:26:36-07:00"
 		And the case is saved to the database
 		When I delete the case
 		Then the operation was successful
