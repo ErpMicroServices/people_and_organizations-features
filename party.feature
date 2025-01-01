@@ -1,7 +1,5 @@
 # Created by JimBarrows at 11/25/18
-Feature: As a user
-	I want to be able to manage data about people and groups
-	So that I can carry out various business functions
+Feature: As a user I want to be able to manage data about people and groups So that I can carry out various business functions
 
 	@party_database
 	@party_endpoint

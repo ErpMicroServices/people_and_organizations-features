@@ -1,7 +1,5 @@
 # Created by JimBarrows at 2019-03-06
-Feature: As a user
-	I want to add, update, or remove purposes on a communication event
-	So that I can better manage communications
+Feature: As a user I want to add, update, or remove purposes on a communication event So that I can better manage communications
 
 	@party_database
 	Scenario: I can add a purpose to a communication event

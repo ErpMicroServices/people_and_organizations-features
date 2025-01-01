@@ -1,7 +1,4 @@
-Feature: Types can be create, updated and deleted
-	As a user of the People and Organization Entity Domain
-	I want to manage types
-	So that I can manage various types of things in the domain
+Feature: As a user of the People and Organization Entity Domain I want to manage types So that I can manage various types of things in the domain
 
 	@party_ui
 		@party_database

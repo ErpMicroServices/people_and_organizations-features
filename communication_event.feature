@@ -1,7 +1,5 @@
 # Created by JimBarrows at 2019-01-29
-Feature: As a user
-	I want to manage communication events for individuals and groups
-	So that I can track what's been communicated, to whom and for what purpose.
+Feature: As a user I want to manage communication events for individuals and groups So that I can track what's been communicated, to whom and for what purpose.
 
 
 	@party_database

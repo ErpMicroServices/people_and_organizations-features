@@ -1,6 +1,4 @@
-Feature: As a user
-  I want to be able to manage id data about people and groups
-  So that I can carry out various business functions
+Feature: As a user I want to be able to manage id data about people and groups So that I can carry out various business functions
 
   Scenario: I can create a party with multiple ids
     Given the following types:

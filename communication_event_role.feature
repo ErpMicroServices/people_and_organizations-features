@@ -1,7 +1,5 @@
 # Created by JimBarrows at 2019-03-07
-Feature: As a user
-	I want to manage communication event roles
-	So that I can manage who/what is communicating with
+Feature: As a user I want to manage communication event roles So that I can manage who/what is communicating with
 
 	@party_database
 	Scenario: I can add a communication event role to a communication event
