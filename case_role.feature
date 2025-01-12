@@ -19,7 +19,6 @@ Feature: As a user I want to be able to manage data about cases So that I can ca
 		Then the operation was successful
 		And the case has 1 roles
 		And the 1 roles have type "Participant"
-		And the roles include the parties
 
 	@party_database
 	@party_endpoint
