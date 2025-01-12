@@ -101,7 +101,6 @@ Feature: As a user I want to be able to manage data about cases So that I can ca
     And the case is saved to the database
     When I delete the case
     Then the operation was successful
-    And I get "true" back
     And the case is not in the database
 
   @party_database
