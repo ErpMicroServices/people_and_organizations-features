@@ -53,6 +53,7 @@ Feature: As a user I want to be able to manage data about cases So that I can ca
 		And a case status of "New"
 		And a case type of "Customer Complaint"
 		And a case was started at "2024-02-29T05:26:36-07:00"
+		And the case is saved to the database
 		And a party with a comment of "Case Role Party" and a type of "Person" is in the database
 		And a party with case role "Participant" has been added to the case
 		When I delete the case role
