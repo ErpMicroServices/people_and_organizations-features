@@ -24,6 +24,8 @@ Feature: As a user I want to manage communication events for individuals and gro
 		And a communication event status is "done"
 		And a communication event contact mechanism type is "test"
 		And a communication event has a type of "Incoming call"
+		And a communication event starts on "2000-02-01" at "13:00:00+07"
+		And a communication event ends on "2000-02-01" at "14:00:00+07"
 		When I create a communication event
 		Then the operation was successful
 		And I find the communication event in the database
@@ -62,7 +64,7 @@ Feature: As a user I want to manage communication events for individuals and gro
 		And a communication event starts on "2000-01-01" at "13:00:00+07"
 		And a communication event ends on "2000-01-01" at "14:00:00+07"
 		And the communication event is in the database
-		When I search for communication events that occurred between "11:00+07" and "15:00+07" on "2000-01-01"
+		When I search for communication events that occurred between "13:00:00+07" and "14:00:00+07" on "2000-01-01"
 		Then the operation was successful
 		And the communication event of type "Find me" is found
 		And the communication event of type "Don't find me" is not found
